@@ -1,4 +1,3 @@
-
 module BillsDashboard
 
   def verifydashboard
