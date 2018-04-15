@@ -4,7 +4,6 @@ module SignupHelper
 
   def signup
 
-
         #step 1: Enter email or phone num
 
         email_field_element = wait_true(15) {
@@ -36,6 +35,11 @@ module SignupHelper
           element if element.displayed?
         }
         signup_btn_element.click
+
+
+      end
+
+  end
 
 =begin
 Verifying the error on the sign up page
@@ -81,8 +85,3 @@ Verifying the error on the sign up page
             # assert ( zip_code_error_msg.text == "Zip code is not valid" )
           end
 =end
-
-
-      end
-
-  end

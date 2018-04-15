@@ -1,4 +1,3 @@
-
 require 'test/unit'
 require 'test/unit/assertions'
 
@@ -10,9 +9,9 @@ include SignupHelper
 
 describe 'Signup : ' do
 
-  signup
-  #navigate_to_login
-  #login
+  #signup
+  navigate_to_login
+  login
   #VerifyLoginPage
   #verifydashboard
 
