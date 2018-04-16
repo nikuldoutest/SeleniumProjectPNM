@@ -1,22 +1,28 @@
-require 'rspec'
-require 'test/unit'
-require 'test/unit/assertions'
+require 'spec_helper'
 
+include SignupHelper
 include WaitHelper
 include GenericHelper
 include LoginHelper
-include SignupHelper
-#include BillsDashboard
+include BillsDashboard
+include LogoutHelper
+include AddBiller
 
-describe 'Signup : ' do
 
-  #signup
-  #navigate_to_login
-  #login
-  #VerifyLoginPage
-  #verifydashboard
-    element = @driver.find_element(:id,"input-email_or_phone")
-    element if element.displayed?
 
+describe "Sign up :" do
+
+  it 'should Allow user to sign up' do
+
+    signup
+
+    verifydashboard
+
+    addbiller("GEICO")
+
+    logout
+
+
+  end
 
 end

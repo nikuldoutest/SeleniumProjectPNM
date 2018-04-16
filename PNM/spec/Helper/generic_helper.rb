@@ -1,7 +1,7 @@
 module GenericHelper
 
  def random_num
-  return Random.new.rand(1...999)
+  return Random.new.rand(100...999999999)
  end
 
  def random_email_generator
