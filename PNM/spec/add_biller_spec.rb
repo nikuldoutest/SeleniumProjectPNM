@@ -6,6 +6,7 @@ include GenericHelper
 include LoginHelper
 include AddBiller
 include BillsDashboard
+include LogoutHelper
 
 randumNumberGenerator = random_num
 
@@ -94,8 +95,52 @@ describe "Add Biller : " do
     submit_click_element.click
 
 
-    wait_true(15) {@driver.find_element(:css,"div.content h2").displayed?}
-    @driver.find_element(:css,"div.content h2").text.should eq "Congratulations"
+    congratulations_element = wait_true(25) {
+      element = @driver.find_element(:css,"div.content h2")
+      element if element.displayed?
+    }
+    congratulations_element.text.should eq "Congratulations"
+
+    sleep 2
+
+  #Click to add another bill
+    add_another_bill_element = wait_true(25) {
+      element = @driver.find_element(:id,"btn-add-another")
+      element if element.displayed?
+    }
+    add_another_bill_element.click
+
+  #Click to go to home
+    goto_home_element = wait_true(25) {
+      element = @driver.find_element(:id,"off-canvas-menu-landing")
+      element if element.displayed?
+    }
+    goto_home_element.click
+
+  #Delete biller
+    delete_element = wait_true(25) {
+      element = @driver.find_element(:css,"div.order-options i.ion-android-more-horizontal")
+      element if element.displayed?
+    }
+    delete_element.click
+
+
+    alert_delete_element = wait_true(25) {
+      element = @driver.find_element(:css,"div.pnm-list-item span.inner.clear.delete")
+      element if element.displayed?
+    }
+    alert_delete_element.click
+
+
+    comfirm_delete_element = wait_true(15) {
+      element = @driver.find_element(:css,"a#alert-button.right")
+      element if element.displayed?
+    }
+    comfirm_delete_element.click
+
+    sleep 2
+
+    logout
 
     sleep 5
 

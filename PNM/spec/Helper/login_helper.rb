@@ -1,7 +1,7 @@
 module LoginHelper
 
   def navigate_to_login
-      login_link = wait_true(25) {
+      login_link = wait_true(15) {
         element = @driver.find_element(:css,"div.login-footer a")
         element if element.displayed?
       }

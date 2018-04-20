@@ -9,11 +9,14 @@ module AddBiller
     add_bill_element.click
 
     wait_true(15){ @driver.find_element(:css,"div.list-item-title").displayed? }
-      @driver.find_elements(:css,"div.list-item-title").each { |listItem|
+      @driver.find_elements(:css,"div.list-item-title").each do |listItem|
+
         if listItem.text == billerName
-          listItem.click
-          break
-        end }
+           listItem.click
+           break
+        end
+
+      end
 
   end
 end

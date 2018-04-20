@@ -3,7 +3,7 @@ module LogoutHelper
   def logout
 
     settings_element = wait_true(15) {
-      element = @driver.find_element(:id,"off-canvas-menu-settings")
+      element = @driver.find_element(:css,"a#off-canvas-menu-settings")
       element if element.displayed?
     }
     settings_element.click
