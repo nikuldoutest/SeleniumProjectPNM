@@ -27,7 +27,12 @@ RSpec.configure do |config|
     @driver.get "https://www.paynearme.com/consumers/#/register"
   end
 
-  config.after(:each) do
+  config.after(:each) do |example|
+    if example.exception
+      puts "taking screenshots"
+      @driver.save_screenshot("./spec/screenshots/Failes_screenshot.png")
+    end
+
     @driver.quit
   end
 

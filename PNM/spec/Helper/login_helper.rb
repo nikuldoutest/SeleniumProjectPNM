@@ -9,7 +9,7 @@ module LoginHelper
   end
 
 
-  def login(pswd="Nikul6695$")
+  def login(pswd="Qwerty123$")
 
     #step 1: Enter email or phone num
     email_field_element = wait_true(15) {

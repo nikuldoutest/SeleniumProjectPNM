@@ -45,7 +45,7 @@ describe "Add Biller : " do
 
 =begin
     first_name_account_element = wait_true(15) {
-      element = @driver.find_element(:id,"input-customer_first_name")
+      element = @driver.clear_then_enter(:id,"input-customer_first_name")
       element if element.displayed?
     }
     first_name_account_element.send_keys("Nikulp")
@@ -101,7 +101,7 @@ describe "Add Biller : " do
     }
     congratulations_element.text.should eq "Congratulations"
 
-    sleep 2
+    #sleep 2
 
   #Click to add another bill
     add_another_bill_element = wait_true(25) {
@@ -138,11 +138,12 @@ describe "Add Biller : " do
     }
     comfirm_delete_element.click
 
-    sleep 2
+   #sleep 2
 
     logout
 
-    sleep 5
+    sleep 2
+
 
   end
 end
